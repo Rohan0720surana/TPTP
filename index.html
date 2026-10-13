@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Utility</title>                                  <!-- CHANGE: app name -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+    <!-- ============ 1. NAVBAR (Bootstrap cheat sheet p.27) ============ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/home">Sports Utility</a>     <!-- CHANGE: app name -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/home">Home</a></li>
+
+                <!-- ===== 2. DROPDOWN (p.17) + BADGES (p.6) — delete this <li> if not asked ===== -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Sports</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#records">Cricket <span class="badge badge-primary">11 Players</span></a>
+                        <a class="dropdown-item" href="#records">Football <span class="badge badge-success">11 Players</span></a>
+                        <a class="dropdown-item" href="#records">Basketball <span class="badge badge-warning">5 Players</span></a>
+                        <a class="dropdown-item" href="#records">Tennis <span class="badge badge-danger">2 Players</span></a>
+                    </div>
+                </li>
+
+                <li class="nav-item"><a class="nav-link" href="#shop">Shop <span class="badge badge-info">3</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+            </ul>
+            <a class="btn btn-outline-light" href="/login">Logout</a>
+        </div>
+    </nav>
+
+    <!-- ============ 3. CAROUSEL (p.12) — delete this whole block if not asked ============ -->
+    <!-- CHANGE: put your image link inside each src="" (e.g. https://picsum.photos/1200/400?1) -->
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="" alt="Slide 1" style="height:400px; object-fit:cover;">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="" alt="Slide 2" style="height:400px; object-fit:cover;">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="" alt="Slide 3" style="height:400px; object-fit:cover;">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+    <!-- ============ 4. FORM + TABLE (always needed) ============ -->
+    <div class="container mt-4" id="records">
+        <h2>Add Sports Record</h2>                                   <!-- CHANGE: heading -->
+
+        <!-- CHANGE: the 4 inputs. Each name="" must match the model fields exactly -->
+        <form id="form">
+            <input class="form-control mb-2" name="player" placeholder="Player Name" required>
+            <input class="form-control mb-2" name="team" placeholder="Team Name" required>
+            <select class="form-control mb-2" name="category" required>
+                <option value="">Select Sport Category</option>
+                <option>Cricket</option>
+                <option>Football</option>
+                <option>Basketball</option>
+                <option>Tennis</option>
+            </select>
+            <input class="form-control mb-2" name="details" placeholder="Match / Game details (optional)">
+            <button class="btn btn-primary">Add Record</button>
+        </form>
+
+        <h2 class="mt-4">All Records</h2>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <!-- CHANGE: 4 column headings, same order as the form -->
+                    <th>Player</th>
+                    <th>Team</th>
+                    <th>Category</th>
+                    <th>Match / Details</th>
+                </tr>
+            </thead>
+            <tbody id="data"></tbody>
+        </table>
+    </div>
+
+    <!-- ============ 5. SHOP: cards (p.9) in a grid (p.43) with badges — delete if not asked ============ -->
+    <div class="container mt-4" id="shop">
+        <h2>Shop</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Cricket Bat <span class="badge badge-success">In Stock</span></h5>
+                        <p class="card-text">Price: &#8377;1500</p>
+                        <a href="#" class="btn btn-primary">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Football <span class="badge badge-warning">Few Left</span></h5>
+                        <p class="card-text">Price: &#8377;800</p>
+                        <a href="#" class="btn btn-primary">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Tennis Racket <span class="badge badge-success">In Stock</span></h5>
+                        <p class="card-text">Price: &#8377;2000</p>
+                        <a href="#" class="btn btn-primary">Buy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ 6. CONTACT ============ -->
+    <div class="container mt-4 mb-4" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@sportsutility.com<br>Phone: 98765 43210</p>
+    </div>
+
+    <footer class="bg-dark text-white text-center p-3">
+        &copy; 2026 Sports Utility
+    </footer>
+
+    <!-- ============ 7. SCRIPTS: Bootstrap JS first (dropdown, carousel), then your script ============ -->
+    <script src="/jquery/jquery.slim.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Load all records from the database and show them in the table
+        async function load() {
+            let d = await (await fetch("/items")).json();
+            // CHANGE: the 4 field names inside ${x.____}
+            data.innerHTML = d.map(x =>
+                `<tr><td>${x.player}</td><td>${x.team}</td><td>${x.category}</td><td>${x.details}</td></tr>`).join("");
+        }
+
+        // Save the form data to the database, then refresh the table
+        form.onsubmit = async e => {
+            e.preventDefault();
+            await fetch("/add", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(Object.fromEntries(new FormData(form)))
+            });
+            form.reset();
+            load();
+        };
+
+        load();
+    </script>
+</body>
+</html>
